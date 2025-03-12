@@ -1,14 +1,3 @@
-import React from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  ArrowRight,
-  Trophy,
-  Target,
-  Sparkles,
-  CheckCircle2,
-} from "lucide-react";
 import HeroSection from "@/components/hero";
 import {
   Accordion,
@@ -16,15 +5,19 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Image from "next/image";
-import { features } from "@/data/features";
-import { testimonial } from "@/data/testimonial";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { faqs } from "@/data/faqs";
+import { features } from "@/data/features";
 import { howItWorks } from "@/data/howItWorks";
+import { testimonial } from "@/data/testimonial";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function LandingPage() {
+export default function Home() {
   return (
-    <>
+    <div className="">
       <div className="grid-background"></div>
 
       {/* Hero Section */}
@@ -108,6 +101,7 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* What Our Users Say */}
       <section className="w-full py-12 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -171,14 +165,16 @@ export default function LandingPage() {
 
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent>{faq.answer}</AccordionContent>
-                </AccordionItem>
-              ))}
+              {faqs.map((faq, index) => {
+                return (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent>{faq.answer}</AccordionContent>
+                  </AccordionItem>
+                );
+              })}
             </Accordion>
           </div>
         </div>
@@ -207,6 +203,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

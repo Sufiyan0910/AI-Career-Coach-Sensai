@@ -226,3 +226,6 @@ const DashboardView = ({ insights }) => {
 };
 
 export default DashboardView;
+
+// npm i recharts -> for chart
+// npm i date-fns -> for current date

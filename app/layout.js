@@ -5,12 +5,13 @@ import { Toaster } from "sonner";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { dark } from "@clerk/themes";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "AI Career Coach",
-  description: "",
+  title: "Sensai - AI Career Coach",
+  description: "Sensai - AI Career Coach is an intelligent career guidance platform that helps users navigate their professional journey with AI-powered insights. It offers personalized career recommendations, resume optimization, mock interview coaching, skill gap analysis, and job market insights—empowering individuals to make smarter career decisions and achieve their goals. 🚀",
 };
 
 export default function RootLayout({ children }) {
@@ -35,9 +36,11 @@ export default function RootLayout({ children }) {
             <main className="min-h-screen">{children}</main>
             <Toaster richColors />
 
-            <footer className="bg-muted/50 py-12">
-              <div className="container mx-auto px-4 text-center text-gray-200">
-                <p>Made with 💗 by RoadsideCoder</p>
+            <footer className="bg-muted/50 py-6">
+              <div className="container mx-auto px-10 text-center text-xl text-gray-200">
+                {/* <p>Made with 💗 by SufiyanKhan</p> */}
+                <p className="text-3xl font-bold tracking-tighter text-center mb-6">Crafted with Passion by SufiyanKhan</p>
+                <Footer />
               </div>
             </footer>
           </ThemeProvider>

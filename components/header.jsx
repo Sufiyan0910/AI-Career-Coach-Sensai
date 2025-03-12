@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "./ui/button";
 import {
   PenBox,
@@ -18,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import { checkUser } from "@/lib/checkUser";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default async function Header() {
   await checkUser();
@@ -37,11 +37,12 @@ export default async function Header() {
 
         {/* Action Buttons */}
         <div className="flex items-center space-x-2 md:space-x-4">
+          <ThemeSwitcher />
           <SignedIn>
             <Link href="/dashboard">
               <Button
                 variant="outline"
-                className="hidden md:inline-flex items-center gap-2"
+                className="hidden md:inline-flex items-center gap-2 cursor-pointer"
               >
                 <LayoutDashboard className="h-4 w-4" />
                 Industry Insights
@@ -56,13 +57,18 @@ export default async function Header() {
               <DropdownMenuTrigger asChild>
                 <Button className="flex items-center gap-2">
                   <StarsIcon className="h-4 w-4" />
-                  <span className="hidden md:block">Growth Tools</span>
+                  <span className="hidden md:block cursor-pointer">
+                    Growth Tools
+                  </span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
                 <DropdownMenuItem asChild>
-                  <Link href="/resume" className="flex items-center gap-2">
+                  <Link
+                    href="/resume"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
                     <FileText className="h-4 w-4" />
                     Build Resume
                   </Link>
@@ -70,14 +76,17 @@ export default async function Header() {
                 <DropdownMenuItem asChild>
                   <Link
                     href="/ai-cover-letter"
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 cursor-pointer"
                   >
                     <PenBox className="h-4 w-4" />
                     Cover Letter
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/interview" className="flex items-center gap-2">
+                  <Link
+                    href="/interview"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
                     <GraduationCap className="h-4 w-4" />
                     Interview Prep
                   </Link>

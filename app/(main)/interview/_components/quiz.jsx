@@ -175,3 +175,5 @@ export default function Quiz() {
     </Card>
   );
 }
+
+// npx inngest-cli@latest dev
